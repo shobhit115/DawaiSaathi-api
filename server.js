@@ -4,6 +4,8 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 
 const searchRoute = require("./routes/searchRoute");
+const medicineDirectRoute = require("./routes/medicineDirectRoute");
+
 
 const app = express();
 
@@ -16,6 +18,7 @@ app.use("/api/search", searchRoute);
 app.use("/api", require("./routes/ocrRoute"));
 app.use("/api", require("./routes/analyzeRoute"));
 app.use("/api", require("./routes/llmRoute"));
+app.use("/api", medicineDirectRoute);
 // app.use("/tts", require("./routes/ttsRoute"));
 
 app.get("/", (req, res) => {
